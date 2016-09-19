@@ -7,16 +7,23 @@
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
-<body>
 
-  <% if logged_in? %>
-  <%= link_to "Logout", logout_path, {method: "DELETE"} %>
-  <% else %>
-      <%= link_to "Login", new_session_path %>
-  <% end %>
+<div class="container">
+
+  <body>
+
+    <% if logged_in? %>
+    <%= link_to "Logout", logout_path, {method: "DELETE"} %>
+    <% else %>
+        <%= link_to "Login", new_session_path %>
+    <% end %>
 
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  </body>
+  
+</div>
+
+</div>
 </html>
