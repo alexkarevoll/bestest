@@ -1,2 +1,34 @@
 <h1>Opinions#new</h1>
+
+<%= form_for @opinion, :html => {class: 'new_user form-horizontal'} do |f| %>
+    <div class="row"><legend class="col-md-4 col-md-offset-4">State Opinion:</legend></div>
+    <fieldset>
+        <div class="form-group">
+            <%= f.label :item, 'Item', class: 'col-md-4 control-label' %>
+            <div class="col-md-5">
+                <%= f.text_field :item, class: 'form-control' %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :category, 'Category', class: 'col-md-4 control-label' %>
+            <div class="col-md-5">
+                <%= f.text_field :category, class: 'form-control' %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :field, 'Field', class: 'col-md-4 control-label' %>
+            <div class="col-md-5">
+                <%= f.text_field :field, class: 'form-control' %>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8 col-md-offset-4">
+                <%= f.submit 'Submit', class: 'btn btn-success' %>
+            </div>
+        </div>
+    </fieldset>
+<% end %>
+
+
+
 <p>Find me in app/views/opinions/new.html.erb</p>
