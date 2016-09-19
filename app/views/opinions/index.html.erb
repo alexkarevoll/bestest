@@ -1,0 +1,11 @@
+<h1>Opinions#index</h1>
+
+<hr>
+
+<ul>
+  <% @opinions.each do |o| %>
+    <li>"<%= o.item %> is the best <%= o.category %> in <%= o.field %></li>
+  <% end %>
+</ul>
+
+<p>Find me in app/views/opinions/index.html.erb</p>
