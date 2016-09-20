@@ -8,22 +8,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 
-<div class="container">
-
   <body>
 
-    <% if logged_in? %>
-    <%= link_to "Logout", logout_path, {method: "DELETE"} %>
-    <% else %>
-        <%= link_to "Login", new_session_path %>
-    <% end %>
+    <%= render "layouts/navbar" %>
 
+    <div class="container">
 
-  <%= yield %>
+      <%= yield %>
+
+    </div>
 
   </body>
-  
-</div>
 
-</div>
 </html>
