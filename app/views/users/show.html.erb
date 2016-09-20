@@ -1,9 +1,10 @@
 <h1><%= @user.name %>'s Profile</h1>
 
 <ul>
-  <% @user.opinions.each do |o| %>
+  <% @user_opinions.each do |o| %>
     <hr>
     <h3>"<%= o.item %> is the best <%= o.category %> in <%= o.field %>."</h3>
+    <h4> Current Score: <%=o.upvotes%> </h4>
   <% end %>
 </ul>
 
