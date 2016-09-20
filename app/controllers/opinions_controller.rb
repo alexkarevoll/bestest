@@ -4,6 +4,7 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
 
   def new
     @opinion = Opinion.new
+    @opinions = Opinion.order(upvotes: :desc)
   end
 
   def create

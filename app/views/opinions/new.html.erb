@@ -1,24 +1,23 @@
-<h1>Opinions#new</h1>
+<h1>What's the bestest?</h1>
 
-<%= form_for @opinion, :html => {class: 'new_user form-horizontal'} do |f| %>
-    <div class="row"><legend class="col-md-4 col-md-offset-4">State Opinion:</legend></div>
+<%= form_for @opinion, :html => {class: 'new_user form-inline'} do |f| %>
+
     <fieldset>
         <div class="form-group">
-            <%= f.label :item, 'Thing', class: 'col-md-4 control-label', placeholder:'Thing' %>
             <div class="col-md-5">
-                <%= f.text_field :item, class: 'form-control' %>
+                <%= f.text_field :item, class: 'form-control', autofocus: true, placeholder: 'Bestest'%>
             </div>
         </div>
         <div class="form-group">
             <%= f.label :category, 'is the best', class: 'col-md-4 control-label' %>
             <div class="col-md-5">
-                <%= f.text_field :category, class: 'form-control' %>
+                <%= f.text_field :category, class: 'form-control', placeholder: 'website'%>
             </div>
         </div>
         <div class="form-group">
-            <%= f.label :field, 'in field', class: 'col-md-4 control-label' %>
+            <%= f.label :field, 'in', class: 'col-md-4 control-label' %>
             <div class="col-md-5">
-                <%= f.text_field :field, class: 'form-control' %>
+                <%= f.text_field :field, class: 'form-control', placeholder: 'the world' %>
             </div>
         </div>
         <div class="form-group">
@@ -29,6 +28,14 @@
     </fieldset>
 <% end %>
 
-
+<ul>
+  <% @opinions.each do |o| %>
+    <hr>
+    <h3>"<%= o.item %> is the best <%= o.category %> in <%= o.field %>."</h3>
+    <h5><%= link_to 'agree', "opinions/#{o.id}/upvote" %></h5>
+    <h5> Raw Score: <%=o.upvotes%> </h5>
+    <h5> <%= link_to 'disagree', "opinions/#{o.id}/downvote" %></h5>
+  <% end %>
+</ul>
 
 <p>Find me in app/views/opinions/new.html.erb</p>
