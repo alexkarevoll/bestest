@@ -36,9 +36,10 @@
   <% @opinions.each do |o| %>
     <hr>
     <h3>"<%= o.item %> is the best <%= o.category %> <%= o.prep %> <%= o.field %>."</h3>
-    <h5><%= link_to 'agree', "opinions/#{o.id}/upvote" %></h5>
+    <h5><%= link_to 'agree', "#{o.id}/upvote" %></h5>
     <h5> Raw Score: <%=o.upvotes%> </h5>
-    <h5> <%= link_to 'disagree', "opinions/#{o.id}/downvote" %></h5>
+    <h5> <%= link_to 'disagree', "#{o.id}/downvote" %></h5>
+    <h5> <%= link_to 'delete', "#{o.id}/delete" %></h5>
   <% end %>
 </ul>
 

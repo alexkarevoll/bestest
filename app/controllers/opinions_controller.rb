@@ -27,7 +27,7 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
   def destroy
     @opinion = Opinion.find(params[:id])
     @opinion.destroy
-    redirect_to(opinions_path)
+    redirect_to(new_opinion_path)
   end
 
   def upvote

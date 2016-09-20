@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/opinions/:id/upvote' => 'opinions#upvote'
   get '/opinions/:id/downvote' => 'opinions#downvote'
 
+  get 'opinions/:id/delete' => 'opinions#destroy'
+
   delete '/logout' => 'sessions#destroy', as: :logout
   get '/logout' => 'sessions#destroy'
   resources :sessions, only: [:new, :create]
