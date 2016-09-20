@@ -12,7 +12,7 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
     @opinion.upvotes ||= 0
     @opinion.downvotes ||= 0
     if @opinion.save
-      redirect_to opinions_path
+      redirect_to new_opinion_path
     end
   end
 
@@ -32,7 +32,6 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
 
   def upvote
     @opinion = Opinion.find(params[:id])
-    @opinion.upvotes ||= 0
     @opinion.upvotes += 1
     @opinion.save
     redirect_to :back
@@ -40,7 +39,6 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
 
   def downvote
     @opinion = Opinion.find(params[:id])
-    @opinion.upvotes ||= 0
     @opinion.upvotes -= 1
     @opinion.save
     redirect_to :back
@@ -48,7 +46,7 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
 
   private
   def opinion_params
-    params.require(:opinion).permit(:item, :category, :field)
+    params.require(:opinion).permit(:item, :category, :field, :prep)
   end
 
 end
