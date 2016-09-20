@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :opinions
 
+  get '/opinions/:id/upvote' => 'opinions#upvote'
+  get '/opinions/:id/downvote' => 'opinions#downvote'
+
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.

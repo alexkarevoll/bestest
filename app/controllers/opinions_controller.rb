@@ -1,5 +1,5 @@
 class OpinionsController < ApplicationController
-before_action :authorize, only: [:show, :new]
+before_action :authorize, only: [:show, :new, :destroy, :create]
 
 
   def new
@@ -14,7 +14,7 @@ before_action :authorize, only: [:show, :new]
   end
 
   def index
-    @opinions = Opinion.all
+    @opinions = Opinion.order(upvotes: :desc)
   end
 
   def show
@@ -25,6 +25,22 @@ before_action :authorize, only: [:show, :new]
     @opinion = Opinion.find(params[:id])
     @opinion.destroy
     redirect_to(opinions_path)
+  end
+
+  def upvote
+    @opinion = Opinion.find(params[:id])
+    @opinion.upvotes ||= 0
+    @opinion.upvotes += 1
+    @opinion.save
+    redirect_to :back
+  end
+
+  def downvote
+    @opinion = Opinion.find(params[:id])
+    @opinion.downvotes ||= 0
+    @opinion.downvotes += 1
+    @opinion.save
+    redirect_to :back
   end
 
   private

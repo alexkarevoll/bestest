@@ -4,6 +4,7 @@
   <% @opinions.each do |o| %>
     <hr>
     <h3>"<%= o.item %> is the best <%= o.category %> in <%= o.field %>."</h3>
+    <h5><%= link_to 'agree', "opinions/#{o.id}/upvote" %> <p><%=o.upvotes%></p> <%= link_to 'disagree', "opinions/#{o.id}/downvote" %> <p><%=o.downvotes%> </p></h5>
   <% end %>
 </ul>
 
