@@ -8,6 +8,8 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
 
   def create
     @opinion = User.find(session[:user_id]).opinions.new(opinion_params)
+    @opinion.upvotes ||= 0
+    @opinion.downvotes ||= 0
     if @opinion.save
       redirect_to opinions_path
     end
@@ -37,8 +39,8 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
 
   def downvote
     @opinion = Opinion.find(params[:id])
-    @opinion.downvotes ||= 0
-    @opinion.downvotes += 1
+    @opinion.upvotes ||= 0
+    @opinion.upvotes -= 1
     @opinion.save
     redirect_to :back
   end
