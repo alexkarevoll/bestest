@@ -1,15 +1,23 @@
-<h1><%= @user.name %>'s Profile</h1>
-<%= image_tag @user.photo.url(:thumb) %>
+<div class="">
+  <h1><%= @user.name %>'s Bests</h1>
+  <%= image_tag @user.photo.url(:thumb) %>
+</div>
 
-<ul>
-  <% @user_opinions.each do |o| %>
-    <hr>
-    <h3>"<%= o.item %> is the best <%= o.category %> in <%= o.field %>."</h3>
-    <h4> Current Score: <%=o.score%> </h4>
-    <% if logged_in? && current_user.id == o.user_id %>
-      <h5> remove <%= link_to '[x]', "#{o.id}/delete"%></h5>
+<div class="">
+  <h2>Cred: <%= @user.cred %></h2>
+</div>
+
+<div class="">
+  <ul>
+    <% @user_opinions.each do |o| %>
+      <hr>
+      <h3>"<%= o.item %> is the best <%= o.category %> <%= o.prep%> <%= o.field %>."</h3>
+      <h4> Current Score: <%=o.score%> </h4>
+      <% if logged_in? && current_user.id == o.user_id %>
+        <h5> remove <%= link_to '[x]', "#{o.id}/delete"%></h5>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
-<p>Find me in app/views/users/show.html.erb</p>
+  <p>Find me in app/views/users/show.html.erb</p>
+</div>

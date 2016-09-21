@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # AWS Craziness
   has_attached_file :photo,
   					         styles: { medium: "300x300#", thumb: "100x100#" },
-					           default_url: "/images/:style/missing.png",
+					           default_url: "/images/missing.png",
                      :storage => :s3,
                      url: ":s3_domain_url",
                      path: "/:class/:attachment/:id_partition/:style/:filename",
@@ -26,5 +26,12 @@ class User < ActiveRecord::Base
   has_many :opinions
   has_many :votes
 
+  def cred
+    cred = 0
+    self.opinions.each do |o|
+        cred += (o.votes.where({sentiment: true}).count - o.votes.where({sentiment: false}).count)
+      end
+      cred
+  end
 
 end
