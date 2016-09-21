@@ -6,6 +6,7 @@ class Opinion < ActiveRecord::Base
 
   has_many :votes
 
+# method that returns overall sentiment for one particular opinion
   def score
     self.votes.where({sentiment: true}).count - self.votes.where({sentiment: false}).count
   end

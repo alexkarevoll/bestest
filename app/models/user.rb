@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   has_many :opinions
   has_many :votes
 
+# method to return sum total off all that user's opinions
   def cred
     cred = 0
     self.opinions.each do |o|

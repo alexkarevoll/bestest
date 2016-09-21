@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'opinions#new'
+  root 'opinions#index'
   resources :users
   resources :opinions
 

@@ -1,12 +1,16 @@
-<h1>Popular Opinions</h1>
+<h1>Popular Feed</h1>
 
 <ul>
   <% @opinions.each do |o| %>
     <hr>
-    <h3>"<%= o.item %> is the best <%= o.category %> <%= o.category %> <%= o.field %>."</h3>
-    <h5><%= link_to 'agree', "opinions/#{o.id}/upvote" %></h5>
-    <h5>Vote Score: <%= o.votes.where({sentiment: true}).count - o.votes.where({sentiment: false}).count %></h5>
-    <h5> <%= link_to 'disagree', "opinions/#{o.id}/downvote" %></h5>
+    <div class="">
+      <h3>"<%= o.item %> is the best <%= o.category %> <%= o.category %> <%= o.field %>."</h3>
+      <h5><%= link_to '+', "opinions/#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
+    </div>
+    <div class="">
+      <h5><%= o.votes.where({sentiment: true}).count - o.votes.where({sentiment: false}).count %></h5>
+      <h5> <%= link_to '-', "opinions/#{o.id}/downvote", class: 'btn btn-danger btn-xs' %></h5>
+    </div>
   <% end %>
 </ul>
 
