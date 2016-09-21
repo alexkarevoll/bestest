@@ -5,7 +5,10 @@
   <% @user_opinions.each do |o| %>
     <hr>
     <h3>"<%= o.item %> is the best <%= o.category %> in <%= o.field %>."</h3>
-    <h4> Current Score: <%=o.upvotes%> </h4>
+    <h4> Current Score: <%=o.score%> </h4>
+    <% if logged_in? && current_user.id == o.user_id %>
+      <h5> remove <%= link_to '[x]', "#{o.id}/delete"%></h5>
+    <% end %>
   <% end %>
 </ul>
 
