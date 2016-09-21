@@ -45,7 +45,9 @@
       <h5><%= link_to '+', "#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
       <h5> <%= o.score %> </h5>
       <h5> <%= link_to '-', "#{o.id}/downvote", class: 'btn btn-danger btn-xs' %></h5>
-      <h5> remove <%= link_to '[x]', "#{o.id}/delete"%></h5>
+      <% if logged_in? && current_user.id == o.user_id %>
+        <h5> remove <%= link_to '[x]', "#{o.id}/delete"%></h5>
+      <% end %>
     </div>
   </div>
   <% end %>
