@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
+
+  # AWS Craziness
   has_attached_file :photo,
   					         styles: { medium: "300x300#", thumb: "100x100#" },
 					           default_url: "/images/:style/missing.png",
@@ -22,6 +24,7 @@ class User < ActiveRecord::Base
 
 
   has_many :opinions
+  has_many :votes
 
 
 end

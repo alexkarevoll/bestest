@@ -3,4 +3,6 @@ class Opinion < ActiveRecord::Base
   validates_presence_of :item
   validates_presence_of :category
   validates_presence_of :field
+
+  has_many :votes
 end
