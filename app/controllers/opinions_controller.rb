@@ -4,7 +4,7 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
 
   def new
     @opinion = Opinion.new
-    @opinions = Opinion.order(upvotes: :desc)
+    @opinions = Opinion.order(created_at: :desc)
   end
 
   def create
@@ -17,7 +17,7 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
   end
 
   def index
-    @opinions = Opinion.order(upvotes: :desc)
+    @opinions = Opinion.all.sort_by{|p| p.score}.reverse
   end
 
   def show
