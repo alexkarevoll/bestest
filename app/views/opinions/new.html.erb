@@ -4,27 +4,29 @@
 
     <fieldset>
         <div class="form-group">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <%= f.text_field :item, class: 'form-control', autofocus: true, placeholder: 'Bestest', required: 'true'%>
             </div>
         </div>
         is the best
         <div class="form-group">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <%= f.text_field :category, class: 'form-control', placeholder: 'website', required: 'true'%>
             </div>
         </div>
 
-        <%= f.select(:prep, options_for_select([['in', 'in'], ['at', 'at'], ['of', 'of'], ['on', 'on'], ['for', 'for']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
+        <div class="form-group">
+          <%= f.select(:prep, options_for_select([['in', 'in'], ['at', 'at'], ['of', 'of'], ['on', 'on'], ['for', 'for']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
+      </div>
 
         <div class="form-group">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <%= f.text_field :field, class: 'form-control', placeholder: 'the world', required: 'true' %>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-8 col-md-offset-4">
-                <%= f.submit 'Submit', class: 'btn btn-success' %>
+            <div class="col-md-3 col-md-offset-4">
+                <%= f.submit 'Tell Everyone', class: 'btn btn-success' %>
             </div>
         </div>
     </fieldset>
@@ -34,12 +36,18 @@
 
 <ul>
   <% @opinions.each do |o| %>
+  <div>
     <hr>
-    <h3>"<%= o.item %> is the best <%= o.category %> <%= o.prep %> <%= o.field %>."</h3>
-    <h5><%= link_to 'agree', "#{o.id}/upvote" %></h5>
-    <h5> Raw Score: <%=o.upvotes%> </h5>
-    <h5> <%= link_to 'disagree', "#{o.id}/downvote" %></h5>
-    <h5> <%= link_to 'delete', "#{o.id}/delete" %></h5>
+    <div class="col-md-8">
+      <h3>"<%= o.item %> is the best <%= o.category %> <%= o.prep %> <%= o.field %>."</h3>
+    </div>
+    <div class="col-md-4">
+      <h5><%= link_to '+', "#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
+      <h5><%=o.upvotes%> </h5>
+      <h5> <%= link_to '-', "#{o.id}/downvote", class: 'btn btn-danger btn-xs' %></h5>
+      <h5> remove <%= link_to '[x]', "#{o.id}/delete"%></h5>
+    </div>
+  <div>
   <% end %>
 </ul>
 
