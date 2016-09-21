@@ -17,7 +17,12 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
   end
 
   def index
-    @opinions = Opinion.all.sort_by{|p| p.score}.reverse
+    @opinions = Opinion.all
+    if params[:search]
+      @opinions = Opinion.search(params[:search]).order("created_at DESC")
+    else
+      @opinions = Opinion.all.order('created_at DESC')
+    end
   end
 
   def show
