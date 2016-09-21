@@ -1,4 +1,11 @@
-<h1>Popular Feed</h1>
+<% if params[:search] %>
+  <h1><%= "best #{params[:search]}" %></h1>
+  <% if flash[:alert] %>
+    <div class="alert alert-warning"><%= flash[:alert] %></div>
+  <% end %>
+  <%else%>
+  <h1>Popular Feed</h1>
+<% end %>
 
 <ul>
   <% @opinions.each do |o| %>

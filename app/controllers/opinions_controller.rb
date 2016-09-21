@@ -19,7 +19,11 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
   def index
     @opinions = Opinion.all
     if params[:search]
+      # banana
       @opinions = Opinion.search(params[:search]).order("created_at DESC")
+      if @opinions.count == 0
+        flash[:alert] = "No bests, you should make one!"
+      end
     else
       @opinions = Opinion.all.order('created_at DESC')
     end

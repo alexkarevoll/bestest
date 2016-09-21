@@ -13,11 +13,7 @@ class Opinion < ActiveRecord::Base
 
 # lets searching!
   def self.search(search)
-    where("item LIKE ?", "%#{search}%")
-    where("category LIKE ?", "%#{search}%")
-    where("field LIKE ?", "%#{search}%")
-    # no tags yet
-    # where("tags LIKE ?", "%#{search}%")
+    Opinion.where('item ilike :search OR category ilike :search OR field ilike :search', search: "%#{search}%")
   end
 
 end

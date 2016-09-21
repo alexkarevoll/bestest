@@ -18,12 +18,10 @@
         <li><a href="/opinions">Popular Feed</a></li>
         <li><a href="/opinions/new">My Feed</a></li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+        <%= form_tag(opinions_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
         <%= text_field_tag :search, params[:search], placeholder: "What is the best" %>
         <%= submit_tag "Search" %>
         <% end %>
-      </form>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
         <li><%= link_to "My Profile", user_path(current_user) %></li>
