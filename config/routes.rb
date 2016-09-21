@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resources :opinions
 
-  get '/opinions/:id/upvote' => 'opinions#upvote'
-  get '/opinions/:id/downvote' => 'opinions#downvote'
+  get '/opinions/:opinion_id/upvote' => 'votes#upvote'
+  get '/opinions/:opinion_id/downvote' => 'votes#downvote'
 
   get 'opinions/:id/delete' => 'opinions#destroy'
 
