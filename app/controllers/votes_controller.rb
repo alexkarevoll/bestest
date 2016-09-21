@@ -10,7 +10,7 @@ class VotesController < ApplicationController
       @vote.user = current_user
     end
     @vote.save
-    redirect_to new_opinion_path
+    redirect_to :back
   end
 
   def downvote
@@ -24,6 +24,6 @@ class VotesController < ApplicationController
       @vote.user = current_user
     end
     @vote.save
-    redirect_to new_opinion_path
+    redirect_to :back
   end
 end

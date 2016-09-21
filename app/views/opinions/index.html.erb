@@ -5,7 +5,7 @@
     <hr>
     <h3>"<%= o.item %> is the best <%= o.category %> <%= o.category %> <%= o.field %>."</h3>
     <h5><%= link_to 'agree', "opinions/#{o.id}/upvote" %></h5>
-    <h5> Raw Score: <%=o.upvotes%> </h5>
+    <h5>Vote Score: <%= o.votes.where({sentiment: true}).count - o.votes.where({sentiment: false}).count %></h5>
     <h5> <%= link_to 'disagree', "opinions/#{o.id}/downvote" %></h5>
   <% end %>
 </ul>
