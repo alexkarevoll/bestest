@@ -28,9 +28,7 @@
         <% end %>
 
         <% if logged_in? %>
-        <li><%= link_to "Logout", logout_path, {method: "DELETE"} %></li>
-        <% else %>
-            <li><%= link_to "Login", new_session_path %></li>
+        <li><%= link_to "Logout", logout_path, {method: "DELETE"} %>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
