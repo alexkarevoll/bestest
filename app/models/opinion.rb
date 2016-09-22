@@ -4,7 +4,7 @@ class Opinion < ActiveRecord::Base
   validates_presence_of :category
   validates_presence_of :field
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
 # method that returns overall sentiment for one particular opinion
   def score
