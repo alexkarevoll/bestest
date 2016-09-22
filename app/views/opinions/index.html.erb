@@ -12,7 +12,7 @@
 
 <% @opinions.each do |o| %>
   <div class="row opinion-box">
-    <div class="col-xs-2">
+    <div class="col-xs-1">
       <% unless logged_in? && current_user.id == o.user_id %>
         <h5><%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, "/opinions/#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
         <% else %>
@@ -28,7 +28,7 @@
         <h5><%= link_to '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe, "/opinions/#{o.id}/delete", class: 'btn btn-danger btn-xs'%></h5>
       <% end %>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-11 ">
       <h3>"<%= o.item %> is the best<br> <%= o.category %> <%= o.prep %> <%= o.field %>."</h3>
     </div>
   </div>

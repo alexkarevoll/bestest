@@ -4,28 +4,30 @@
 
       <fieldset>
           <div class="form-group">
-              <div class="col-md-3">
+              <div class="col-sm-2">
                   <%= f.text_field :item, class: 'form-control', autofocus: true, placeholder: 'Bestest', required: 'true'%>
               </div>
           </div>
           is the best
           <div class="form-group">
-              <div class="col-md-3">
+              <div class="col-sm-2">
                   <%= f.text_field :category, class: 'form-control', placeholder: 'website', required: 'true'%>
               </div>
           </div>
 
           <div class="form-group">
-            <%= f.select(:prep, options_for_select([['in', 'in'], ['at', 'at'], ['of', 'of'], ['on', 'on'], ['for', 'for']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
+            <div class="col-sm-2">
+              <%= f.select(:prep, options_for_select([['in', 'in'], ['at', 'at'], ['of', 'of'], ['on', 'on'], ['for', 'for']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
+            </div>
           </div>
 
           <div class="form-group">
-              <div class="col-md-3">
+              <div class="col-sm-2">
                   <%= f.text_field :field, class: 'form-control', placeholder: 'the world', required: 'true' %>
               </div>
           </div>
           <div class="form-group">
-              <div class="col-md-3 col-md-offset-4">
+              <div class="col-md-2">
                   <%= f.submit 'Tell Everyone', class: 'btn btn-success' %>
               </div>
           </div>
@@ -39,7 +41,7 @@
 
   <% @opinions.each do |o| %>
     <div class="row opinion-box">
-      <div class="col-xs-2">
+      <div class="col-xs-1">
         <% unless logged_in? && current_user.id == o.user_id %>
           <h5><%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, "#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
           <% else %>
@@ -55,7 +57,7 @@
           <h5><%= link_to '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe, "#{o.id}/delete", class: 'btn btn-danger btn-xs'%></h5>
         <% end %>
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-11">
         <h3>"<%= o.item %> is the best<br> <%= o.category %> <%= o.prep %> <%= o.field %>."</h3>
       </div>
     </div>
