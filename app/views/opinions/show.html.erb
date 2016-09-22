@@ -5,5 +5,3 @@
 <h5><%= link_to 'agree', "opinions/#{o.id}/upvote" %></h5>
 <h5> Raw Score: <%= @opinion.votes.where({sentiment: true}).count - @opinion.votes.where({sentiment: false}).count %> </h5>
 <h5> <%= link_to 'disagree', "opinions/#{o.id}/downvote" %></h5>
-
-<p>Find me in app/views/opinions/show.html.erb</p>
