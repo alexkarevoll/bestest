@@ -19,7 +19,7 @@ before_action :authorize, only: [:show]
 
   def show
     @user = User.find(params[:id])
-    @user_opinions = @user.opinions.all
+    @user_opinions = @user.opinions.all.sort_by{|o| o.score}.reverse
   end
 
   private

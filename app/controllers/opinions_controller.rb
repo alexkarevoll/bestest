@@ -22,7 +22,6 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
   def index
     @opinions = Opinion.all.sort_by{|o| o.score}.reverse
     if params[:search]
-      # banana
       @opinions = Opinion.search(params[:search]).order("created_at DESC")
       if @opinions.count == 0
         flash[:alert] = "Nothing here. Try being less specific, or go to your feed and tell everyone what's the bestest!"
