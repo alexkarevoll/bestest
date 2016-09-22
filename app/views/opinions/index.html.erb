@@ -12,8 +12,7 @@
 
 <% @opinions.each do |o| %>
 
-<div class="row">
-  <hr>
+<div class="row opinion-box">
   <div class="col-xs-2">
     <% unless logged_in? && current_user.id == o.user_id %>
       <h5><%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, "/opinions/#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
@@ -31,6 +30,7 @@
   </div>
 
 </div>
+<br>
 <% end %>
 
 
