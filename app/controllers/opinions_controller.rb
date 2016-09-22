@@ -17,15 +17,15 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
   end
 
   def index
-    @opinions = Opinion.all
+    @opinions = Opinion.all.sort_by{|o| o.score}.reverse
     if params[:search]
       # banana
       @opinions = Opinion.search(params[:search]).order("created_at DESC")
       if @opinions.count == 0
-        flash[:alert] = "Nothing here, you should tell everyone what's the best!"
+        flash[:alert] = "Nothing here. Try being less specific, or go to your feed and tell everyone what's the bestest!"
       end
     else
-      @opinions = Opinion.all.order('created_at DESC')
+      @opinions = Opinion.all.sort_by{|o| o.score}.reverse
     end
   end
 
