@@ -11,26 +11,28 @@
 <% end %>
 
 <% @opinions.each do |o| %>
-
-<div class="row opinion-box">
-  <div class="col-xs-2">
-    <% unless logged_in? && current_user.id == o.user_id %>
-      <h5><%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, "/opinions/#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
-    <% end %>
-    <h5> <%= o.score %> </h5>
-    <% unless logged_in? && current_user.id == o.user_id %>
-      <h5> <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, "/opinions/#{o.id}/downvote", class: 'btn btn-danger btn-xs' %></h5>
-    <% end %>
-    <% if logged_in? && current_user.id == o.user_id %>
-      <h5> remove <%= link_to '[x]', "/opinions/#{o.id}/delete"%></h5>
-    <% end %>
+  <div class="row opinion-box">
+    <div class="col-xs-2">
+      <% unless logged_in? && current_user.id == o.user_id %>
+        <h5><%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, "/opinions/#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
+        <% else %>
+        <h5> <%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, {},class: 'btn btn-warning btn-xs' %></h5>
+      <% end %>
+      <h5> <%= o.score %> </h5>
+      <% unless logged_in? && current_user.id == o.user_id %>
+        <h5> <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, "/opinions/#{o.id}/downvote", class: 'btn btn-danger btn-xs' %></h5>
+        <% else %>
+        <h5> <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, {}, class: 'btn btn-warning btn-xs' %></h5>
+      <% end %>
+      <% if logged_in? && current_user.id == o.user_id %>
+        <h5><%= link_to '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe, "/opinions/#{o.id}/delete", class: 'btn btn-danger btn-xs'%></h5>
+      <% end %>
+    </div>
+    <div class="col-xs-10">
+      <h3>"<%= o.item %> is the best<br> <%= o.category %> <%= o.prep %> <%= o.field %>."</h3>
+    </div>
   </div>
-  <div class="col-xs-10">
-    <h3>"<%= o.item %> is the best <%= o.category %> <%= o.prep %> <%= o.field %>."</h3>
-  </div>
-
-</div>
-<br>
+  <br>
 <% end %>
 
 
