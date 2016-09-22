@@ -11,7 +11,10 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
     @opinion = User.find(session[:user_id]).opinions.new(opinion_params)
     @opinion.upvotes ||= 0
     @opinion.downvotes ||= 0
+    @vote = @opinion.votes.new({sentiment: true})
+    @vote.user = current_user
     if @opinion.save
+
       redirect_to new_opinion_path
     end
   end

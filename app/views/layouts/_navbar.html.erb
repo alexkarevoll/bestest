@@ -20,19 +20,17 @@
       </ul>
         <%= form_tag(opinions_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
         <%= text_field_tag :search, params[:search], placeholder: "What is the best...", class: 'form-control' %>
-        <%= submit_tag "?", class: "btn btn-default" %>
+        <%= submit_tag "search", class: "btn btn-default" %>
         <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
         <li><%= link_to "My Profile", user_path(current_user) %></li>
-        <% else %>
-            <%= link_to "Login", new_session_path %>
         <% end %>
 
         <% if logged_in? %>
         <li><%= link_to "Logout", logout_path, {method: "DELETE"} %></li>
         <% else %>
-            <%= link_to "Login", new_session_path %>
+            <li><%= link_to "Login", new_session_path %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

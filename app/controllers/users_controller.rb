@@ -8,7 +8,8 @@ before_action :authorize, only: [:show]
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to new_session_path
+      session[:user_id] = @user.id
+      redirect_to new_opinion_path
     end
   end
 
