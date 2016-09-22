@@ -19,8 +19,8 @@
         <li><a href="/opinions/new">My Feed</a></li>
       </ul>
         <%= form_tag(opinions_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "What is the best" %>
-        <%= submit_tag "Search" %>
+        <%= text_field_tag :search, params[:search], placeholder: "What is the best...", class: 'form-control' %>
+        <%= submit_tag "?", class: "btn btn-default" %>
         <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>

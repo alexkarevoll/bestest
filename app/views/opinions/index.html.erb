@@ -1,7 +1,10 @@
 <% if params[:search] %>
   <h1><%= "best #{params[:search]}" %></h1>
   <% if flash[:alert] %>
-    <div class="alert alert-warning"><%= flash[:alert] %></div>
+  <div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Oh no!</strong> <%= flash[:alert] %>
+  </div>
   <% end %>
   <%else%>
   <h1>Popular Feed</h1>
@@ -11,7 +14,7 @@
   <% @opinions.each do |o| %>
     <hr>
     <div class="">
-      <h3>"<%= o.item %> is the best <%= o.category %> <%= o.category %> <%= o.field %>."</h3>
+      <h3>"<%= o.item %> is the best <%= o.category %>  <%= o.field %>."</h3>
       <h5><%= link_to '+', "opinions/#{o.id}/upvote", class: 'btn btn-success btn-xs' %></h5>
     </div>
     <div class="">

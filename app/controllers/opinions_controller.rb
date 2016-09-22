@@ -22,7 +22,7 @@ before_action :authorize, only: [:show, :new, :destroy, :create]
       # banana
       @opinions = Opinion.search(params[:search]).order("created_at DESC")
       if @opinions.count == 0
-        flash[:alert] = "No bests, you should make one!"
+        flash[:alert] = "Nothing here, you should tell everyone what's the best!"
       end
     else
       @opinions = Opinion.all.order('created_at DESC')
