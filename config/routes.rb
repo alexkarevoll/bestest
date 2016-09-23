@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   resources :users
   resources :opinions
 
-  get '/opinions/:opinion_id/upvote' => 'votes#upvote'
-  get '/opinions/:opinion_id/downvote' => 'votes#downvote'
+  get '/opinions/:opinion_id/upvote' => 'votes#upvote', as: :upvote
+  get '/opinions/:opinion_id/downvote' => 'votes#downvote', as: :downvote
 
-  get 'opinions/:id/delete' => 'opinions#destroy'
+  get 'opinions/:id/delete' => 'opinions#destroy', as: :delete_opinion
 
   delete '/logout' => 'sessions#destroy', as: :logout
   get '/logout' => 'sessions#destroy'

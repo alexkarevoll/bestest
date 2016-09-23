@@ -11,7 +11,7 @@
   <h3>"<%= o.item %> is the best <%= o.category %> <%= o.prep%> <%= o.field %>."</h3>
   <h4> Current Cred: <%=o.score%> </h4>
   <% if logged_in? && current_user.id == o.user_id %>
-    <h5> Delete <%= link_to '[x]', "#{o.id}/delete"%></h5>
+    <h5> Delete <%= link_to '[x]', delete_opinion_path(o.id)%></h5>
   <% end %>
   </div>
   <br>
