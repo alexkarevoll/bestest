@@ -1,10 +1,13 @@
 # bestest:
-####a *super*lative site for literally everything
+####a superlative site for literally everything
+
 ------------------------
+
+![alt text](/Users/alexkarevoll/WDI/workspace/Projects/bestest/app/assets/images/bestest-screenshot.png "bestest screenshot")
+
 ### About
 - "Guisados is the best taco in Los Angeles."
 - "Maru is the best cat on the internet."
-- "The Princess Bride is the best movie of the 80's."
 - "Philippe and Jimmy are the best instructors at GA." 
 
 Bestest is a simple website where users submit opinions that follow the formula, "_____ is the best _____ in _____". They  can then agree or disagree with the opinions of others, allowing only the truly best things in the world to float to the top. The categories are as endless as contributors make them.
