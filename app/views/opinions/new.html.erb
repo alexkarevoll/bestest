@@ -59,7 +59,7 @@
       </div>
       <div class="col-xs-1">
       <% if logged_in? && current_user.id == o.user_id %>
-        <h5><%= link_to '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe, delete_opinion_path(o.id), class: 'btn btn-danger btn-xs'%></h5>
+        <h5><%= link_to '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe, delete_opinion_path(o.id), method: :delete, class: 'btn btn-danger btn-xs'%></h5>
       <% end %>
     </div>
     </div>

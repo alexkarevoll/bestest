@@ -2,14 +2,14 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
   resources :users
+
+  delete 'opinions/:id' => 'opinions#destroy', as: :delete_opinion
   resources :opinions
 
   get '*path' => redirect('/')
 
   get '/opinions/:opinion_id/upvote' => 'votes#upvote', as: :upvote
   get '/opinions/:opinion_id/downvote' => 'votes#downvote', as: :downvote
-
-  get 'opinions/:id/delete' => 'opinions#destroy', as: :delete_opinion
 
   delete '/logout' => 'sessions#destroy', as: :logout
   get '/logout' => 'sessions#destroy'
