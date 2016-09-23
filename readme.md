@@ -3,7 +3,7 @@
 
 ------------------------
 
-![alt text](/Users/alexkarevoll/WDI/workspace/Projects/bestest/app/assets/images/bestest-screenshot.png "bestest screenshot")
+![alt text](http://i.imgur.com/yN3rkBW.png "bestest screenshot")
 
 ### About
 - "Guisados is the best taco in Los Angeles."
