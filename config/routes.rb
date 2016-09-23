@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resources :opinions
 
+  get '*path' => redirect('/')
+
   get '/opinions/:opinion_id/upvote' => 'votes#upvote', as: :upvote
   get '/opinions/:opinion_id/downvote' => 'votes#downvote', as: :downvote
 
