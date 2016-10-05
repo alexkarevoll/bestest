@@ -12,6 +12,8 @@
 
 Bestest is a simple website where users submit opinions that follow the formula, "_____ is the best _____ in _____". They  can then agree or disagree with the opinions of others, allowing only the truly best things in the world to float to the top. The categories are as endless as contributors make them.
 
+[Try it out here](https://frozen-reef-81332.herokuapp.com/)
+
 
 ### MVP
 - Users can sign up for password protected accounts
